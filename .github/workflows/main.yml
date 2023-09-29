@@ -1,0 +1,36 @@
+name: Data Preprocessing Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  preprocess:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.8
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Data Preprocessing - load
+        run: python githubCI_CD/app.py load_data
+
+      - name: Data Preprocessing - delete
+        run: python githubCI_CD/app.py delete_data
+
+      - name: Data Preprocessing - feature
+        run: python githubCI_CD/app.py feature_enineer
+
+      - name: Data Preprocessing - show
+        run: python githubCI_CD/app.py show_stat
+
+  
