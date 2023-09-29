@@ -42,6 +42,18 @@ def call_name_pays(dat):
   return pays.split('\'')[0]
 
 
+def show_stat(data):
+    data[['renting_price', 'is_immeuble']].groupby(['is_immeuble'], as_index=False).mean().sort_values(
+        by='renting_price', ascending=False)
+    data[['renting_price', 'is_moderne']].groupby(['is_moderne'], as_index=False).mean().sort_values(by='renting_price',
+                                                                                                     ascending=False)
+
+    data[['city', 'renting_price', 'is_immeuble', 'category']].groupby(['city', 'is_immeuble', 'category'],
+                                                                       as_index=False).sum().sort_values(
+        by='renting_price', ascending=False)
+
+
+
 
 
 
