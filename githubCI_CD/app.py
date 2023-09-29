@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-def load_data(url = 'data/house.csv'):
+def load_data(url = 'githubCI_CD/data/house.csv'):
     return pd.read_csv(url)
 
 def clean_data(data):
