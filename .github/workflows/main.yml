@@ -21,9 +21,6 @@ jobs:
       - name: Install dependencies
         run: pip install pandas
 
-      - name: Data Preprocessing - load
-        run: python githubCI_CD/app.py load_data
-
       - name: Data Preprocessing - delete
         run: python githubCI_CD/app.py delete_data
 
