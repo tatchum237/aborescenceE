@@ -11,6 +11,12 @@ def clean_data(data):
         data[column].fillna(data[column].mean, inplace=True)
     return data
 
+def delete_data(data):
+    # Supprimer les lignes dupliquées
+    data = data.drop_duplicates()
+    return data
+
+
 
 
 
